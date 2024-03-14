@@ -1,7 +1,7 @@
 import { describe, it, expect } from "bun:test";
-import LinkedList from "./data-structures/linkedList";
-import Stack from "./data-structures/stack";
-import Queue from "./data-structures/queue";
+import LinkedList from "./linkedList";
+import Stack from "./stack";
+import Queue from "./queue";
 
 describe("LinkedList", () => {
   it("can be created", () => {
