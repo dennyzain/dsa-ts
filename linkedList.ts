@@ -12,11 +12,10 @@ class LinkedList {
     this.head = null;
     this.tail = null;
   }
-
+  // ------ time complexity of append is O(1)
   append(value: number) {
     const newNode = new Node(value);
 
-    // If the linked list is empty
     if (!this.head) {
       this.head = newNode;
       this.tail = newNode;
@@ -24,14 +23,13 @@ class LinkedList {
       return;
     }
 
-    // Make the last item refer to the newly added node
     if (this.tail) {
       this.tail.next = newNode;
     }
-    // Make the newly added node the last/tail node
     this.tail = newNode;
   }
 
+  // ------ time complexity of prepend is O(1)
   prepend(value: number): this {
     const newNode = new Node(value);
     newNode.next = this.head;
@@ -41,6 +39,7 @@ class LinkedList {
     return this;
   }
 
+  // ------ time complexity of delete is O(1)
   deleteHead() {
     if (!this.head) return;
 
@@ -52,6 +51,7 @@ class LinkedList {
     }
   }
 
+  // ------ time complexity of traverse(visiting all of the nodes) is O(n)
   traverse() {
     let currentNode = this.head;
     while (currentNode) {
@@ -60,6 +60,7 @@ class LinkedList {
     }
   }
 
+  // ------ time complexity of find is O(n)
   find(value: number) {
     let currentNode = this.head;
     while (currentNode) {
