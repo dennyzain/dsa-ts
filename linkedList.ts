@@ -52,7 +52,7 @@ class LinkedList {
     }
   }
 
-  traversing() {
+  traverse() {
     let currentNode = this.head;
     while (currentNode) {
       console.log(currentNode);
@@ -60,7 +60,17 @@ class LinkedList {
     }
   }
 
-  accessing() {}
+  find(value: number) {
+    let currentNode = this.head;
+    while (currentNode) {
+      if (currentNode.data === value) {
+        return currentNode.data;
+      }
+      currentNode = currentNode.next;
+    }
+
+    return "sorry the number doesn't exist";
+  }
 
   toArray() {
     const items = [];

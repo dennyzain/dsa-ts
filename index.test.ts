@@ -45,16 +45,15 @@ describe("LinkedList", () => {
 
   // --- deleting
 
-  // it("can be deleted", () => {
-  //   const list = new LinkedList();
-  //   list.append(3);
-  //   list.append(4);
-  //   list.prepend(1);
-  //   list.prepend(2);
-  //   list.deleteHead();
-  //   expect(list.head?.data).toBe(2);
-  //   expect(list.tail?.data).toBe(4);
-  // });
+  it("can be deleted", () => {
+    const list = new LinkedList();
+    list.append(3);
+    list.append(4);
+    list.prepend(1);
+    list.prepend(2);
+    list.deleteHead();
+    expect(list.head?.data).toBe(1);
+  });
 
   // --- to array
 
@@ -80,5 +79,37 @@ describe("LinkedList", () => {
     list.prepend(1);
     list.prepend(2);
     expect(list.toArray()).toStrictEqual([2, 1, 3, 4]);
+  });
+
+  // --- finding
+
+  it("can be find", () => {
+    const list = new LinkedList();
+    list.append(3);
+    list.append(4);
+    list.prepend(1);
+    list.prepend(2);
+    list.traverse();
+  });
+
+  // --- accessing
+  it("can be find", () => {
+    const list = new LinkedList();
+    list.append(3);
+    list.append(4);
+    list.prepend(1);
+    list.prepend(2);
+
+    expect(list.find(4)).toBe(4);
+  });
+
+  it("can be find", () => {
+    const list = new LinkedList();
+    list.append(3);
+    list.append(4);
+    list.prepend(1);
+    list.prepend(2);
+
+    expect(list.find(5)).toBe("sorry the number doesn't exist");
   });
 });
