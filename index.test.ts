@@ -1,5 +1,7 @@
 import { describe, it, expect } from "bun:test";
-import LinkedList from "./linkedList";
+import LinkedList from "./data-structures/linkedList";
+import Stack from "./data-structures/stack";
+import Queue from "./data-structures/queue";
 
 describe("LinkedList", () => {
   it("can be created", () => {
@@ -111,5 +113,61 @@ describe("LinkedList", () => {
     list.prepend(2);
 
     expect(list.find(5)).toBe("sorry the number doesn't exist");
+  });
+});
+
+describe("Stack", () => {
+  it("can be created", () => {
+    const stack = new Stack();
+    expect(stack).toBeTruthy();
+  });
+
+  it("can be pushed", () => {
+    const stack = new Stack();
+    stack.push(1);
+    expect(stack.peek()).toBe(1);
+  });
+
+  it("can be pushed", () => {
+    const stack = new Stack();
+    stack.push(1);
+    stack.push(5);
+    expect(stack.peek()).toBe(5);
+  });
+
+  it("can be popped", () => {
+    const stack = new Stack();
+    stack.push(1);
+    stack.push(5);
+    stack.pop();
+    expect(stack.peek()).toBe(1);
+  });
+});
+
+describe("Queue", () => {
+  it("can be created", () => {
+    const queue = new Queue();
+    expect(queue).toBeTruthy();
+  });
+
+  it("can be enqueued", () => {
+    const queue = new Queue();
+    queue.enqueue(1);
+    expect(queue.peek()).toBe(1);
+  });
+
+  it("can be enqueued", () => {
+    const queue = new Queue();
+    queue.enqueue(1);
+    queue.enqueue(5);
+    expect(queue.peek()).toBe(1);
+  });
+
+  it("can be dequeued", () => {
+    const queue = new Queue();
+    queue.enqueue(1);
+    queue.enqueue(5);
+    queue.dequeue();
+    expect(queue.peek()).toBe(5);
   });
 });
