@@ -2,6 +2,7 @@ import { describe, it, expect } from "bun:test";
 import LinkedList from "./linkedList";
 import Stack from "./stack";
 import Queue from "./queue";
+import HashTable from "./hashTable";
 
 describe("LinkedList", () => {
   it("can be created", () => {
@@ -169,5 +170,51 @@ describe("Queue", () => {
     queue.enqueue(5);
     queue.dequeue();
     expect(queue.peek()).toBe(5);
+  });
+});
+
+describe("HashTable", () => {
+  it("can be created", () => {
+    const hashTable = new HashTable();
+    expect(hashTable).toBeTruthy();
+  });
+
+  it("can be set", () => {
+    const hashTable = new HashTable();
+    hashTable.set("apple", "$3");
+    expect(hashTable.get("apple")).toBe("$3");
+  });
+
+  it("can be get", () => {
+    const hashTable = new HashTable();
+    hashTable.set("apple", "$3");
+    hashTable.set("mango", "$5");
+    hashTable.set("kiwi", "$4");
+    expect(hashTable.get("kiwi")).toBe("$4");
+  });
+
+  it("can be delete", () => {
+    const hashTable = new HashTable();
+    hashTable.set("apple", "$3");
+    hashTable.set("mango", "$5");
+    hashTable.set("kiwi", "$4");
+    hashTable.delete("kiwi");
+    expect(hashTable.get("kiwi")).toBe("not found");
+  });
+
+  it("can be size", () => {
+    const hashTable = new HashTable();
+    hashTable.set("apple", "$3");
+    hashTable.set("mango", "$5");
+    hashTable.set("kiwi", "$4");
+    expect(hashTable.size()).toBe(3);
+  });
+
+  it("can be traverse", () => {
+    const hashTable = new HashTable();
+    hashTable.set("apple", "$3");
+    hashTable.set("mango", "$5");
+    hashTable.set("kiwi", "$4");
+    expect(hashTable.traverse()).toBeString();
   });
 });
